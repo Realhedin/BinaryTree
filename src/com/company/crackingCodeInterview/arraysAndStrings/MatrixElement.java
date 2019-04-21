@@ -2,31 +2,53 @@ package com.company.crackingCodeInterview.arraysAndStrings;
 
 /**
  * @author dkorolev
- *         Date: 4/19/2019
- *         Time: 5:55 PM
+ * Date: 4/19/2019
+ * Time: 5:55 PM
  */
 public class MatrixElement {
 
-    //O(n^2)
-    public static void setZerosToRowAndColumn(int[][] matrix) {
 
+    public static void main(String[] args) {
+        int[][] matrix = {{1, 0, 1}, {1, 0, 1}, {1, 1, 1}};
+        showMatrix(matrix);
+        System.out.println();
+        int[][] ints = setZerosToRowAndColumn(matrix);
+        showMatrix(ints);
+    }
+
+
+
+    //O(n^2) + O(n^2) => O(n^2) complexity
+    public static int[][] setZerosToRowAndColumn(int[][] matrix) {
+        int[] row = new int[matrix.length];
+        int[] column = new int[matrix[0].length];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 if (matrix[i][j] == 0) {
-                    setRowAndColumnZeros(matrix, i, j);
+                    row[i] = 1;
+                    column[j] = 1;
                     break;
                 }
             }
         }
 
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (row[i] == 1 || column[j] == 1) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        return matrix;
     }
 
-    private static void setRowAndColumnZeros(int[][] matrix, int row, int col) {
-        for (int i = 0; i < matrix[col].length; i++) {
-            matrix[i][col] = 0;
-        }
-        for (int j = 0; j < matrix[row].length; j++) {
-            matrix[row][j] = 0;
+
+    private static void showMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j]+" ");
+            }
+            System.out.println();
         }
     }
 }
