@@ -9,12 +9,12 @@ public class People {
 
     private String name;
 
-    private int age;
+    private Integer age;
 
     private Gender gender;
 
 
-    public People(String name, int age, Gender gender) {
+    public People(String name, Integer age, Gender gender) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -22,11 +22,11 @@ public class People {
 
 
     //gettters & setters
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
