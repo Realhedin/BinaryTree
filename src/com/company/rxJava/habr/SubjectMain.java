@@ -1,12 +1,13 @@
-package com.company.rxJava;
+package com.company.rxJava.habr;
 
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subjects.AsyncSubject;
-import io.reactivex.subjects.BehaviorSubject;
-import io.reactivex.subjects.PublishSubject;
-import io.reactivex.subjects.ReplaySubject;
+import rx.schedulers.Schedulers;
+import rx.subjects.AsyncSubject;
+import rx.subjects.BehaviorSubject;
+import rx.subjects.PublishSubject;
+import rx.subjects.ReplaySubject;
+
 
 /**
  * @author dkorolev
@@ -74,6 +75,6 @@ public class SubjectMain {
         asyncSubject.onNext(0);
         asyncSubject.onNext(1);
         asyncSubject.onNext(2);
-        asyncSubject.onComplete();;
+        asyncSubject.onCompleted();;
     }
 }

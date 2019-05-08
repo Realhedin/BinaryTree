@@ -1,8 +1,9 @@
-package com.company.rxJava;
+package com.company.rxJava.habr;
 
-import io.reactivex.disposables.Disposable;
-import io.reactivex.subjects.ReplaySubject;
-import io.reactivex.subjects.Subject;
+
+import rx.Subscription;
+import rx.subjects.ReplaySubject;
+import rx.subjects.Subject;
 
 /**
  * @author dkorolev
@@ -13,12 +14,12 @@ public class Part3Main {
 
     public static void main(String[] args) {
 
-        Subject<Integer> replaySubject = ReplaySubject.create();
-        Disposable disposable = replaySubject.subscribe(
+        Subject<Integer,Integer> replaySubject = ReplaySubject.create();
+        Subscription disposable = replaySubject.subscribe(
                 v -> System.out.println("First: " +v),
                 e -> System.err.println(e)
         );
-        Disposable disposable2 = replaySubject.subscribe(
+        Subscription disposable2 = replaySubject.subscribe(
                 v -> System.out.println("Second: " + v),
                 e -> System.err.println(e),
                 () -> System.out.println("Done")
@@ -29,12 +30,12 @@ public class Part3Main {
 //        replaySubject.onError(new RuntimeException("Some exception."));
 
         //unsubscribe 1st subscriber
-        disposable.dispose();
+        disposable.unsubscribe();
         System.out.println("First unsubscribed");
         replaySubject.onNext(2);
 
         //set to complete, so sequence is closed
-        replaySubject.onComplete();
+        replaySubject.onCompleted();
         replaySubject.onNext(3);
 
 
