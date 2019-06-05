@@ -21,7 +21,9 @@ public class StreamExercises6 {
         System.out.println(sum);
 
         Integer max = ordered.stream().max(Integer::compareTo).orElse(-1);
+        Integer integer = ordered.stream().reduce((n1, n2) -> n1 > n2 ? n1 : n2).orElse(-1);
         System.out.println(max);
+        System.out.println(integer);
 
         Integer oddSum = ordered.stream().filter(n -> n%2!=0).reduce(0,(n1,n2)-> n1 +n2);
         System.out.println(oddSum);
