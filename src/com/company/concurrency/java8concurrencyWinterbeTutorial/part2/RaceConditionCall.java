@@ -31,6 +31,13 @@ public class RaceConditionCall {
         System.out.println(countClass2.getCount());
 
 
+        //change synchronized increment to use locks
+        ExecutorService executorService3 = Executors.newFixedThreadPool(3);
+        CountClass countClass3 = new CountClass();
+        IntStream.range(0, 100000)
+                .forEach(i -> executorService3.submit(countClass3::incrementWithLock));
+        RaceConditionCall.stop(executorService3);
+        System.out.println(countClass3.getCount());
 
     }
 

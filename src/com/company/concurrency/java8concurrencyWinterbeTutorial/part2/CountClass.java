@@ -1,5 +1,7 @@
 package com.company.concurrency.java8concurrencyWinterbeTutorial.part2;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @author dkorolev
  *         Date: 6/4/2019
@@ -18,8 +20,23 @@ public class CountClass {
     }
 
 
+    ReentrantLock reentrantLock = new ReentrantLock();
+    public void incrementWithLock() {
+        reentrantLock.lock();
+        try {
+            count += 1;
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+
 
     public  int getCount() {
         return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
