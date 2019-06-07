@@ -1,4 +1,4 @@
-package com.company.concurrency.java8concurrencyWinterbeTutorial.part2;
+package com.company.concurrency.java8concurrencyWinterbeTutorial.part2_SynchronizationAndLocks;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;

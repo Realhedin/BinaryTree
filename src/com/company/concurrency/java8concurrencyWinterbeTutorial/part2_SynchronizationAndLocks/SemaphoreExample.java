@@ -1,4 +1,4 @@
-package com.company.concurrency.java8concurrencyWinterbeTutorial.part2;
+package com.company.concurrency.java8concurrencyWinterbeTutorial.part2_SynchronizationAndLocks;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
