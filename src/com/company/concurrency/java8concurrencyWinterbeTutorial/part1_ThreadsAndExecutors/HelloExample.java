@@ -1,4 +1,4 @@
-package com.company.concurrency.java8concurrencyWinterbeTutorial.part1;
+package com.company.concurrency.java8concurrencyWinterbeTutorial.part1_ThreadsAndExecutors;
 
 /**
  * @author dkorolev

@@ -1,4 +1,4 @@
-package com.company.concurrency.java8concurrencyWinterbeTutorial.part1;
+package com.company.concurrency.java8concurrencyWinterbeTutorial.part1_ThreadsAndExecutors;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.Executors;
