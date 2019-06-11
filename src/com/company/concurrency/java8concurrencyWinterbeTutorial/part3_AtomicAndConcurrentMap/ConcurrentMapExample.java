@@ -36,5 +36,8 @@ public class ConcurrentMapExample {
 
         map.computeIfPresent("h1", (k,v) -> "test333" );
         System.out.println(map.get("h1"));
+
+        map.merge("foo", "boo", (oldVal, newVal) -> newVal + " was " + oldVal);
+        System.out.println(map.get("foo"));
     }
 }
