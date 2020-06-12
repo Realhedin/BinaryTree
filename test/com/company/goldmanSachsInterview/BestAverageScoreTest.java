@@ -1,6 +1,7 @@
 package com.company.goldmanSachsInterview;
 
-import javafx.util.Pair;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ public class BestAverageScoreTest {
     public void averageValue() {
         String array[][] =  {{"Name1","80"},{"Name2","67"}, {"Name1","60"}};
         Pair<String, Double> actualValues = BestAverageScore.averageValue(array);
-        Assert.assertEquals(new Pair<>("Name1",70d),actualValues);
+        Assert.assertEquals(new ImmutablePair<>("Name1",70d),actualValues);
     }
 
 
@@ -23,6 +24,6 @@ public class BestAverageScoreTest {
     public void averageValue_2() {
         String array[][] =  {{"Name1","80"},{"Name2","50"}, {"Name1","60"}, {"Name2","100"}, {"Name3","71"}, {"Name3","81"}};
         Pair<String, Double> actualValues = BestAverageScore.averageValue(array);
-        Assert.assertEquals(new Pair<>("Name3",76d),actualValues);
+        Assert.assertEquals(new ImmutablePair<>("Name3",76d),actualValues);
     }
 }

@@ -1,12 +1,15 @@
 package com.company.goldmanSachsInterview;
 
+
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javafx.util.Pair;
 
 /**
  * @author dkorolev
@@ -44,6 +47,6 @@ public class BestAverageScore {
                 name = stringListEntry.getKey();
             }
         }
-        return new Pair<>(name, average);
+        return new ImmutablePair<>(name, average);
     }
 }
