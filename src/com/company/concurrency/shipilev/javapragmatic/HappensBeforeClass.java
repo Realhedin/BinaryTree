@@ -1,4 +1,4 @@
-package com.company.shipilev.javapragmatic;
+package com.company.concurrency.shipilev.javapragmatic;
 
 
 /**
