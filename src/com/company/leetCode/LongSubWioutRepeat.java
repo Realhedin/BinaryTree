@@ -45,7 +45,7 @@ public class LongSubWioutRepeat {
         int maxInt = 0;
         int i=0;
         int j=0;
-        while (i < s.length()-1 || j < s.length()-1) {
+        while (i < s.length() && j < s.length()) {
             if (!sub.contains(s.charAt(j))) {
                 sub.add(s.charAt(j++));
                 maxInt = Math.max(maxInt, j - i);
