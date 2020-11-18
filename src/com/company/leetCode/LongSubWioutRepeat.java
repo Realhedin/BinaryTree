@@ -55,4 +55,21 @@ public class LongSubWioutRepeat {
         }
         return maxInt;
     }
+
+
+    public String longestSlidingWindowString(String s) {
+        Set<Character> unique = new HashSet<>();
+        String str = "";
+        int i = 0;
+        int j = 0;
+        while (i < s.length() && j < s.length()) {
+            if (!unique.contains(s.charAt(j))) {
+                unique.add(s.charAt(j++));
+                str = str.length() > s.substring(i, j).length() ? str : s.substring(i, j);
+            } else {
+                unique.remove(s.charAt(i++));
+            }
+        }
+        return str;
+    }
 }
