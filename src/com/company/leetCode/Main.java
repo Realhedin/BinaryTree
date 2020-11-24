@@ -8,5 +8,8 @@ public class Main {
 
         MaxConsecutiveOnes maxConsecutiveOnes = new MaxConsecutiveOnes();
         System.out.println(maxConsecutiveOnes.findMaxConsecutivOnesSlidingWindowFastCatchup(new int[] {1,0,1,1,0,1}));
+
+        HouseRobber houseRobber = new HouseRobber();
+        System.out.println("House Robbery problem: " + houseRobber.rob(new int[]{1, 3, 8, 5, 2}));
     }
 }
