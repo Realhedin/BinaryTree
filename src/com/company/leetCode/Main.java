@@ -11,5 +11,9 @@ public class Main {
 
         HouseRobber houseRobber = new HouseRobber();
         System.out.println("House Robbery problem: " + houseRobber.rob(new int[]{1, 3, 8, 5, 2}));
+
+        TrappingRainWater rainWater = new TrappingRainWater();
+        System.out.println("Trapped rain water problem, Dynamic simple:"
+                + rainWater.trapRainWaterDynamicProgramming(new int[] {4,2,0,3,2,5}));
     }
 }
