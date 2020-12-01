@@ -15,5 +15,7 @@ public class Main {
         TrappingRainWater rainWater = new TrappingRainWater();
         System.out.println("Trapped rain water problem, Dynamic simple:"
                 + rainWater.trapRainWaterDynamicProgramming(new int[] {4,2,0,3,2,5}));
+        System.out.println("Trapped rain water problem, Sliding window:"
+                + rainWater.trapRainWaterSlidingWindow(new int[] {4,2,0,3,2,5}));
     }
 }

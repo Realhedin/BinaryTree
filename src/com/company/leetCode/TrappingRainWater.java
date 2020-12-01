@@ -10,6 +10,50 @@ package com.company.leetCode;
  */
 public class TrappingRainWater {
 
+
+    /**
+     * Having one run though array by adjustin left and right indexes.
+     * We dynamically compare leftMax and RightMax to calculate
+     * trapped water on smaller side.
+     *
+     * @param height - array of incoming structure.
+     * @return sum of trapped water.
+     */
+    public int trapRainWaterSlidingWindow(int[] height) {
+        int leftIndex = 0;
+        int rightIndex = height.length -1;
+        int leftMax = 0;
+        int rightMax = 0;
+        int trappedWater = 0;
+
+        while (leftIndex < rightIndex) {
+            //compare index elements
+            if (height[leftIndex] < height[rightIndex]) {
+                if (height[leftIndex] > leftMax) {
+                    //if element > leftMax, set it as max
+                    leftMax = height[leftIndex];
+                } else {
+                    //otherwise, calculate as difference between leftmax and current height
+                    trappedWater += leftMax - height[leftIndex];
+                }
+                //move left index to the right
+                leftIndex++;
+            } else {
+                //the same as above but for rightIndex
+                if (height[rightIndex] > rightMax) {
+                    rightMax = height[rightIndex];
+                } else {
+                    trappedWater += rightMax - height[rightIndex];
+                }
+                //move right index to the left
+                rightIndex--;
+            }
+        }
+        return trappedWater;
+    }
+
+
+
     /**
      * We iterate from left to right to save leftMax per each element in array.
      * Then iterate from right to left.
