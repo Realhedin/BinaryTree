@@ -17,5 +17,9 @@ public class Main {
                 + rainWater.trapRainWaterDynamicProgramming(new int[] {4,2,0,3,2,5}));
         System.out.println("Trapped rain water problem, Sliding window:"
                 + rainWater.trapRainWaterSlidingWindow(new int[] {4,2,0,3,2,5}));
+
+        MinimumWindowSubstring minimumWindowSubstring = new MinimumWindowSubstring();
+        System.out.println("Minimum window substring: "
+                + minimumWindowSubstring.minWindow("ADOBECODEBANC", "ABC"));
     }
 }
