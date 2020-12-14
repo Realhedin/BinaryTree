@@ -3,7 +3,6 @@ package com.company.leetCode;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO handle duplications "aa", "aa"
 public class MinimumWindowSubstring {
     public String minWindow(String s, String t) {
 
@@ -15,6 +14,13 @@ public class MinimumWindowSubstring {
             return "";
         }
 
+
+        //needed number of each symbol
+        Map<Character, Integer> requiredDictionary = new HashMap<>();
+        for (int i = 0; i < t.length(); i++) {
+            requiredDictionary.merge(t.charAt(i), 1, Integer::sum);
+        }
+
         //fill dictionary to check necessary number of characters
         Map<Character, Integer> dictionary = new HashMap<>();
         for (int i = 0; i < t.length(); i++) {
@@ -22,7 +28,7 @@ public class MinimumWindowSubstring {
         }
 
         //counter to needed size, if 0 - then we are fine
-        int counter = dictionary.size();
+        int counter = t.length();
 
         //left and right pointers
         int l = 0, r = 0;
@@ -37,11 +43,12 @@ public class MinimumWindowSubstring {
             //take next symbol
             char c = s.charAt(r);
             Integer existingValue = dictionary.get(c);
+            Integer requiredNumber = requiredDictionary.get(c);
             if (existingValue == null) {
                 r++;
                 continue;
-            } else if (existingValue == 0) {
-                dictionary.put(c, 1);
+            } else if (existingValue < requiredNumber) {
+                dictionary.put(c, existingValue+1);
                 counter--;
             } else {
                 dictionary.put(c, existingValue + 1);
@@ -64,7 +71,7 @@ public class MinimumWindowSubstring {
                     //check if dictionary has this symbol
                     if (dictionary.containsKey(c)) {
                         existingValue = dictionary.get(c);
-                        if (existingValue == 1) {
+                        if (existingValue <= requiredDictionary.get(c)) {
                             counter++;
                         }
                         dictionary.put(c, existingValue - 1);
@@ -75,6 +82,7 @@ public class MinimumWindowSubstring {
             }
             r++;
         }
+        //didn't find matches
         if (subWindow[0] == Integer.MAX_VALUE) {
             return "";
         }
