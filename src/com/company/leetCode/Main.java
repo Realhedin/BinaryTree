@@ -21,5 +21,13 @@ public class Main {
         MinimumWindowSubstring minimumWindowSubstring = new MinimumWindowSubstring();
         System.out.println("Minimum window substring: "
                 + minimumWindowSubstring.minWindow("ADOBECODEBANC", "ABC"));
+
+
+        FourSumCount fourSumCount = new FourSumCount();
+        System.out.println("Four sum count 2: " +
+                +fourSumCount.fourSumCountMethod(new int []{1,2},
+                        new int[]{-2,-1},
+                        new int[]{-1,2},
+                        new int[]{0,2}));
     }
 }
