@@ -29,5 +29,10 @@ public class Main {
                         new int[]{-2,-1},
                         new int[]{-1,2},
                         new int[]{0,2}));
+
+
+        ShiftingLetters shiftingLetters = new ShiftingLetters();
+        System.out.println("Shifting letters: "
+            + shiftingLetters.shiftingLetters("abc", new int[]{3, 5, 9}));
     }
 }
