@@ -34,5 +34,18 @@ public class Main {
         ShiftingLetters shiftingLetters = new ShiftingLetters();
         System.out.println("Shifting letters: "
             + shiftingLetters.shiftingLetters("abc", new int[]{3, 5, 9}));
+
+        //create cache for capacity = 2
+        System.out.println("\nLeast Recently Used cache: ");
+        LRUCache lruCache = new LRUCache(2);
+        lruCache.put(1,1); //added
+        lruCache.put(2, 2); //added
+        System.out.println(lruCache.get(1)); //return one
+        lruCache.put(3,3); //2 removed, 3 added
+        System.out.println(lruCache.get(2)); //return -1
+        lruCache.put(4, 4); //1 removed, 4 added
+        System.out.println(lruCache.get(1)); // return -1
+        System.out.println(lruCache.get(3)); //return 3
+        System.out.println(lruCache.get(4)); // return 4
     }
 }
