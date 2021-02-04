@@ -31,9 +31,9 @@ public class LRUCache {
 
 
     public int get(int key) {
-        if (nodeMap.containsKey(key)) {
-            //get Node, remove node from cache and add it into beginning
-            Node node = nodeMap.get(key);
+        //get Node, remove node from cache and add it into beginning
+        Node node = nodeMap.get(key);
+        if (node != null) {
             removeNode(node);
             addNodeAfterHead(node);
             return node.value;
@@ -43,15 +43,15 @@ public class LRUCache {
     }
 
     public void put(int key, int value) {
-        if (nodeMap.containsKey(key)) {
             /* if exists, then we remove this object and
             add to the head and update value */
-            Node node = nodeMap.get(key);
+        Node node = nodeMap.get(key);
+        if (node != null) {
             removeNode(node);
             node.value = value;
             addNodeAfterHead(node);
         } else {
-            Node node = new Node(key, value);
+            node = new Node(key, value);
             //first check, if capacity exceeded
             if (nodeMap.size() >= capacity) {
                 //remove lru from map and from cache
