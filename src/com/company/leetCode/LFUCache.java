@@ -10,6 +10,7 @@ import java.util.Map;
  *  We use Node class (two directional analogue of LinkedList) to have extended cache object.
  *  withing Map<Integer,Node> cache.
  *  And we have helper frequency map with LinkedList for Node: Map<Integer, DoubleLinkedList> frequencyMap.
+ *  https://leetcode.com/problems/lfu-cache
  */
 public class LFUCache {
     final int capacity;
