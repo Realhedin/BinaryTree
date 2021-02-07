@@ -47,5 +47,20 @@ public class Main {
         System.out.println(lruCache.get(1)); // return -1
         System.out.println(lruCache.get(3)); //return 3
         System.out.println(lruCache.get(4)); // return 4
+
+
+        //create cache for capacity = 2
+        System.out.println("\nLeast Frequently Used cache: ");
+        LFUCache lfuCache = new LFUCache(2);
+        lfuCache.put(1,1); //added
+        lfuCache.put(2, 2); //added
+        System.out.println(lfuCache.get(1)); //return one
+        lfuCache.put(3,3); //2 removed, 3 added
+        System.out.println(lfuCache.get(2)); //return -1
+        System.out.println(lfuCache.get(3)); //return 3
+        lfuCache.put(4, 4); //1 removed, 4 added
+        System.out.println(lfuCache.get(1)); // return -1
+        System.out.println(lfuCache.get(3)); //return 3
+        System.out.println(lfuCache.get(4)); // return 4
     }
 }
