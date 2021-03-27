@@ -3,6 +3,23 @@ package com.company.leetCode;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *  Find minimum substring containing all symbols from String T
+ *  in big String S.
+ *  Create 2 dictionaries: one contains necessary symbols with number of them from T,
+ *  second one is prepared to be filled during algorithm.
+ *  counter indicates that how many symbols do we still need to find
+ *
+ *  Algorithm (sliding window):
+ *  we iterate through string S, adding elements into dictionary,
+ *  until counter > 0 increasing right pointer.
+ *  When it becomes 0,
+ *  we start to schrink our current window, by moving left pointer and
+ *  check if counter is still 0 and number of elements in requiredDictionary is still enough.
+ *
+ *  https://leetcode.com/problems/minimum-window-substring/
+ */
+
 public class MinimumWindowSubstring {
     public String minWindow(String s, String t) {
 
